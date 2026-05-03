@@ -1,211 +1,444 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giải pháp phần mềm trường học</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ Sinh Thái Phần Mềm Trường Học | Lập trình bởi MR. RICH</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-<style>
-body { font-family: Arial; }
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #f8f9fa;
+      --text-color: #333;
+    }
 
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('https://images.unsplash.com/photo-1588072432836-e10032774350');
-  color: white;
-  padding: 120px 20px;
-  text-align: center;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.section { padding: 70px 20px; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text-color);
+    }
 
-/* PHẦN MỀM */
-.software-card {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.software-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.software-title {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  text-align: center;
-  padding: 5px;
-}
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
-/* CHI TIẾT */
-.detail-box {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 40px;
-}
-.detail-images img {
-  width: 100%;
-  border-radius: 5px;
-}
+    .hero {
+      background: linear-gradient(rgba(0, 32, 96, 0.7), rgba(0, 0, 0, 0.8)),
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 160px 20px 120px;
+      text-align: center;
+    }
 
-/* FORM */
-input {
-  border-radius: 8px !important;
-}
+    .section {
+      padding: 80px 0;
+    }
 
-footer {
-  background: #111;
-  color: #aaa;
-  padding: 30px;
-  text-align: center;
-}
-</style>
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .feature-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      padding: 30px 20px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: var(--primary-color);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .detail-row {
+      margin-bottom: 80px;
+    }
+    
+    .detail-img {
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .detail-img:hover {
+      transform: scale(1.02);
+    }
+
+    .price-box {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      padding: 40px 20px;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Giải pháp phần mềm cho trường học</h1>
-  <p class="lead">Quản lý thông minh – Tiết kiệm thời gian – Tăng hiệu quả</p>
-</section>
-
-<!-- LỜI NGỎ -->
-<section class="section text-center">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
   <div class="container">
-    <h2>Lời ngỏ</h2>
-    <p>Chúng tôi cung cấp các giải pháp giúp nhà trường số hóa quản lý và nâng cao hiệu quả vận hành.</p>
-  </div>
-</section>
-
-<!-- 6 PHẦN MỀM -->
-<section class="section bg-light">
-  <div class="container">
-    <h2 class="text-center mb-4">Các phần mềm hiện có</h2>
-    <div class="row g-4">
-
-      <!-- 6 card -->
-      <div class="col-md-4"><div class="software-card"><img src="https://via.placeholder.com/300"><div class="software-title">Quản lý xe QR</div></div><p class="text-center mt-2">Kiểm soát xe học sinh</p></div>
-      <div class="col-md-4"><div class="software-card"><img src="https://via.placeholder.com/300"><div class="software-title">Thẻ học sinh</div></div><p class="text-center mt-2">In thẻ QR</p></div>
-      <div class="col-md-4"><div class="software-card"><img src="https://via.placeholder.com/300"><div class="software-title">Quản lý điểm</div></div><p class="text-center mt-2">Tổng hợp điểm</p></div>
-      <div class="col-md-4"><div class="software-card"><img src="https://via.placeholder.com/300"><div class="software-title">Quản lý ra vào</div></div><p class="text-center mt-2">Kiểm soát học sinh</p></div>
-      <div class="col-md-4"><div class="software-card"><img src="https://via.placeholder.com/300"><div class="software-title">Quản lý dữ liệu</div></div><p class="text-center mt-2">Quản lý tập trung</p></div>
-      <div class="col-md-4"><div class="software-card"><img src="https://via.placeholder.com/300"><div class="software-title">Báo cáo thống kê</div></div><p class="text-center mt-2">Thống kê tự động</p></div>
-
+    <a class="navbar-brand fw-bold text-primary" href="#">MR. RICH</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#loi-ngo">Lời ngỏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tong-quan">Tổng quan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#chi-tiet">Tính năng</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bao-gia">Báo giá</a></li>
+        <li class="nav-item"><a class="btn btn-primary ms-2" href="#dang-ky">Dùng thử</a></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<!-- VIDEO -->
-<section class="section text-center">
-  <div class="container">
-    <h2>Video giới thiệu</h2>
-    <div class="ratio ratio-16x9 mt-4">
-      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+</nav>
+ <!-- 1. HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Hệ sinh thái phần mềm toàn diện cho trường học</h1>
+      <p class="lead mb-5 opacity-75">
+        Quản lý tối ưu – Tự động hóa quy trình – Ổn định và chuyên nghiệp
+      </p>
+      <a href="#tong-quan" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Khám phá ngay</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CHI TIẾT 6 PHẦN MỀM -->
-<section class="section">
-  <div class="container">
-    <h2 class="text-center mb-5">Chi tiết phần mềm</h2>
-
-    <!-- LẶP 6 BOX -->
-    <!-- BOX TEMPLATE -->
-    <!-- COPY CHỈNH TÊN + ẢNH -->
-
-    <!-- 1 -->
-    <div class="detail-box">
-      <h4>Quản lý xe QR</h4>
-      <div class="row row-cols-6 g-2 detail-images mt-3">
-        <div class="col"><img src="https://via.placeholder.com/150"></div>
-        <div class="col"><img src="https://via.placeholder.com/150"></div>
-        <div class="col"><img src="https://via.placeholder.com/150"></div>
-        <div class="col"><img src="https://via.placeholder.com/150"></div>
-        <div class="col"><img src="https://via.placeholder.com/150"></div>
-        <div class="col"><img src="https://via.placeholder.com/150"></div>
+  <!-- 2. LỜI NGỎ -->
+  <section id="loi-ngo" class="section bg-light">
+    <div class="container text-center max-w-75">
+      <h2 class="section-title">Lời ngỏ</h2>
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-8">
+          <p class="fs-5 text-muted fst-italic">
+            "Với kinh nghiệm sát sao trong công tác quản lý giáo dục và tuyển sinh, chúng tôi xây dựng hệ sinh thái phần mềm tập trung vào tính thực tiễn, nhanh chóng và giữ độ ổn định cao nhất của giao diện gốc. Các công cụ được thiết kế để giải quyết triệt để những bất cập từ quản lý thiết bị, điểm số, đến tư vấn bằng công nghệ AI, giúp nhà trường vận hành trơn tru và chuyên nghiệp."Với kinh nghiệm sát sao trong công tác quản lý giáo dục và tuyển sinh, chúng tôi xây dựng hệ sinh thái phần mềm tập trung vào tính thực tiễn, nhanh chóng và giữ độ ổn định cao nhất của giao diện gốc. Các công cụ được thiết kế để giải quyết triệt để những bất cập từ quản lý thiết bị, điểm số, đến tư vấn bằng công nghệ AI, giúp nhà trường vận hành trơn tru và chuyên nghiệp"
+          </p>
+        </div>
       </div>
-      <p class="mt-3">Quét QR, hiển thị thông tin, lưu lịch sử...</p>
     </div>
+  </section>
 
-    <!-- 2 -->
-    <div class="detail-box"><h4>Thẻ học sinh</h4><div class="row row-cols-6 g-2 detail-images mt-3"><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div></div><p class="mt-3">Tạo thẻ nhanh, in dễ dàng...</p></div>
+  <!-- 3. TỔNG QUAN PHẦN MỀM -->
+  <section id="tong-quan" class="section text-center">
+    <div class="container">
+      <h2 class="section-title">Danh mục phần mềm</h2>
+      <div class="row justify-content-center mt-5 g-4">
+        
+        <!-- PM 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <i class="bi bi-pc-display feature-icon"></i>
+            <h5 class="fw-bold">1. Quản lý phòng máy</h5>
+            <p class="text-muted">Giám sát và điều khiển tập trung các máy tính trong phòng thực hành tin học của nhà trường.</p>
+          </div>
+        </div>
 
-    <!-- 3 -->
-    <div class="detail-box"><h4>Quản lý điểm</h4><div class="row row-cols-6 g-2 detail-images mt-3"><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div></div><p class="mt-3">Nhập điểm, tổng hợp...</p></div>
+        <!-- PM 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <i class="bi bi-router feature-icon"></i>
+            <h5 class="fw-bold">2. Thi trực tuyến LAN/WIFI</h5>
+            <p class="text-muted">Hệ thống tổ chức thi trắc nghiệm nội bộ ổn định, không phụ thuộc vào tốc độ internet bên ngoài.</p>
+          </div>
+        </div>
 
-    <!-- 4 -->
-    <div class="detail-box"><h4>Quản lý ra vào</h4><div class="row row-cols-6 g-2 detail-images mt-3"><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div></div><p class="mt-3">Kiểm soát ra vào...</p></div>
+        <!-- PM 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <i class="bi bi-p-circle feature-icon"></i>
+            <h5 class="fw-bold">3. Quản lý nhà xe</h5>
+            <p class="text-muted">Kiểm soát xe học sinh ra vào cổng nhanh chóng, chính xác bằng công nghệ quét mã QR.</p>
+          </div>
+        </div>
 
-    <!-- 5 -->
-    <div class="detail-box"><h4>Quản lý dữ liệu</h4><div class="row row-cols-6 g-2 detail-images mt-3"><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div></div><p class="mt-3">Quản lý thông tin...</p></div>
+        <!-- PM 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <i class="bi bi-person-vcard feature-icon"></i>
+            <h5 class="fw-bold">4. In thẻ học sinh</h5>
+            <p class="text-muted">Thiết kế và in thẻ học sinh điện tử có tích hợp mã QR định danh, liên kết đồng bộ cơ sở dữ liệu.</p>
+          </div>
+        </div>
 
-    <!-- 6 -->
-    <div class="detail-box"><h4>Báo cáo thống kê</h4><div class="row row-cols-6 g-2 detail-images mt-3"><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div><div class="col"><img src="https://via.placeholder.com/150"></div></div><p class="mt-3">Thống kê dữ liệu...</p></div>
+        <!-- PM 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <i class="bi bi-file-earmark-spreadsheet feature-icon"></i>
+            <h5 class="fw-bold">5. Quản lý & Xếp phòng thi</h5>
+            <p class="text-muted">Tự động hóa hoàn toàn việc chia phòng, xếp số báo danh và xử lý điểm từ dữ liệu file Excel.</p>
+          </div>
+        </div>
 
-  </div>
-</section>
+        <!-- PM 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <i class="bi bi-robot feature-icon"></i>
+            <h5 class="fw-bold">6. Tư vấn hướng nghiệp</h5>
+            <p class="text-muted">Trợ lý AI phân tích tài liệu PDF, giao tiếp bằng giọng nói để hỗ trợ giải đáp tuyển sinh cho học sinh.</p>
+          </div>
+        </div>
 
-<!-- FORM -->
-<section class="section text-center" id="contact">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. VIDEO GIỚI THIỆU -->
+  <section class="section bg-light text-center">
+    <div class="container">
+      <h2 class="section-title">Video Demo Vận Hành</h2>
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-8">
+          <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
+            <!-- THAY VIDEO ID YOUTUBE VÀO ĐÂY -->
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Demo Phần Mềm" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CHI TIẾT TỪNG PHẦN MỀM -->
+  <section id="chi-tiet" class="section">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Chi tiết tính năng</h2>
+
+      <!-- PM 1: Quản lý phòng máy (Ảnh trái) -->
+      <div class="row align-items-center detail-row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=800&auto=format&fit=crop" alt="Quản lý phòng máy" class="img-fluid detail-img w-100">
+        </div>
+        <div class="col-md-6 ps-md-5">
+          <h3 class="fw-bold mb-3">1. Phần mềm Quản lý phòng máy</h3>
+          <ul class="list-unstyled text-muted lh-lg">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Giám sát màn hình của tất cả các máy trạm theo thời gian thực.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Thao tác điều khiển từ xa: bật/tắt máy, khóa màn hình nhanh chóng.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Chia sẻ màn hình máy chủ giáo viên xuống các máy học sinh.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Chặn truy cập các trang web hoặc phần mềm không phù hợp trong giờ học.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PM 2: Thi trực tuyến LAN/WIFI (Ảnh phải) -->
+      <div class="row align-items-center detail-row">
+        <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&auto=format&fit=crop" alt="Thi trực tuyến mạng LAN" class="img-fluid detail-img w-100">
+        </div>
+        <div class="col-md-6 order-md-1 pe-md-5">
+          <h3 class="fw-bold mb-3">2. Phần mềm thi trực tuyến (LAN, WIFI)</h3>
+          <ul class="list-unstyled text-muted lh-lg">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Hoạt động mượt mà, bảo mật cao trên mạng nội bộ không lo đứt cáp, rớt mạng.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Ngân hàng câu hỏi đa dạng, hỗ trợ tự động trộn đề và đáp án.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Hệ thống tự động chấm điểm và xuất báo cáo ngay khi học sinh nộp bài.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Chống gian lận hiệu quả bằng cách vô hiệu hóa phím tắt, chuyển tab.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PM 3: Quản lý nhà xe (Ảnh trái) -->
+      <div class="row align-items-center detail-row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=800&auto=format&fit=crop" alt="Quản lý nhà xe" class="img-fluid detail-img w-100">
+        </div>
+        <div class="col-md-6 ps-md-5">
+          <h3 class="fw-bold mb-3">3. Phần mềm quản lý nhà xe</h3>
+          <ul class="list-unstyled text-muted lh-lg">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Sử dụng công nghệ nhận diện mã QR với tốc độ xử lý siêu tốc (< 1 giây).</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Hiển thị trực quan thông tin học sinh, lớp, loại xe trên màn hình khi quét.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Lưu trữ toàn bộ lịch sử giờ vào/ra, dễ dàng truy xuất khi cần đối soát.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Chống ùn tắc hiệu quả trong giờ cao điểm tan trường.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PM 4: In thẻ học sinh (Ảnh phải) -->
+      <div class="row align-items-center detail-row">
+        <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+          <img src="https://images.unsplash.com/photo-1633265486064-086b219458ce?q=80&w=800&auto=format&fit=crop" alt="In thẻ học sinh" class="img-fluid detail-img w-100">
+        </div>
+        <div class="col-md-6 order-md-1 pe-md-5">
+          <h3 class="fw-bold mb-3">4. Phần mềm in thẻ học sinh</h3>
+          <ul class="list-unstyled text-muted lh-lg">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Thiết kế phôi thẻ chuẩn, tùy biến linh hoạt theo đồng phục, logo trường.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Trích xuất dữ liệu tự động để in ấn hàng loạt, tiết kiệm thời gian.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Mỗi thẻ được cấp một mã QR riêng biệt và mã hóa an toàn.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Đồng bộ dữ liệu trực tiếp với hệ thống quản lý nhà xe, thư viện, điểm danh.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PM 5: Quản lý & Xếp phòng thi (Ảnh trái) -->
+      <div class="row align-items-center detail-row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop" alt="Xếp phòng thi" class="img-fluid detail-img w-100">
+        </div>
+        <div class="col-md-6 ps-md-5">
+          <h3 class="fw-bold mb-3">5. Phần mềm quản lý và xếp phòng thi</h3>
+          <ul class="list-unstyled text-muted lh-lg">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Nhập, xuất danh sách học sinh và điểm thi linh hoạt từ file Excel.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Giao diện giữ nguyên gốc giúp thao tác thân thiện, tạo nút tự động xếp phòng với 1 click.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Thống kê nhanh sĩ số, chia số báo danh dồn tự động theo môn học.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Xử lý thông minh dữ liệu đầu vào: tự động định dạng chuẩn ngày sinh (loại bỏ chuỗi 00:00:00 thừa).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PM 6: Tư vấn hướng nghiệp (Ảnh phải) -->
+      <div class="row align-items-center">
+        <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop" alt="Tư vấn hướng nghiệp AI" class="img-fluid detail-img w-100">
+        </div>
+        <div class="col-md-6 order-md-1 pe-md-5">
+          <h3 class="fw-bold mb-3">6. Phần mềm tư vấn hướng nghiệp</h3>
+          <ul class="list-unstyled text-muted lh-lg">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Ứng dụng công nghệ RAG AI tiên tiến để đọc hiểu quy chế, tài liệu đào tạo (file PDF).</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Hệ thống nhận diện giọng nói, giao tiếp tự nhiên trực tiếp qua Micro và Loa.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Giải đáp chính xác, tự động thắc mắc của học sinh khối 10, khối 12 về định hướng chọn khối thi.</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Hoạt động như một trợ lý tư vấn tuyển sinh ảo 24/7.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. BÁO GIÁ -->
+  <section id="bao-gia" class="section bg-light text-center">
+    <div class="container">
+      <h2 class="section-title">Bảng giá triển khai</h2>
+      <div class="row mt-5 g-4 justify-content-center">
+
+        <div class="col-md-4">
+          <div class="price-box">
+            <h4 class="text-muted">Gói Riêng Lẻ</h4>
+            <h2 class="fw-bold my-4 text-primary">2.000.000đ</h2>
+            <ul class="list-unstyled text-start text-muted mb-4 lh-lg">
+              <li>✔️ Cài đặt 1 phần mềm tùy chọn</li>
+              <li>✔️ Đào tạo sử dụng tận nơi</li>
+              <li>✔️ Hỗ trợ kỹ thuật 1 năm</li>
+            </ul>
+            <a href="#dang-ky" class="btn btn-outline-primary w-100">Chọn gói này</a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="price-box popular">
+            <h4 class="text-muted">Gói Quản Lý Đồng Bộ</h4>
+            <h2 class="fw-bold my-4 text-primary">5.000.000đ</h2>
+            <ul class="list-unstyled text-start text-muted mb-4 lh-lg">
+              <li>✔️ Triển khai 3 phần mềm quản lý</li>
+              <li>✔️ Đồng bộ dữ liệu Excel</li>
+              <li>✔️ Bảo hành trọn vòng đời PM</li>
+            </ul>
+            <a href="#dang-ky" class="btn btn-primary w-100">Chọn gói này</a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="price-box">
+            <h4 class="text-muted">Hệ Sinh Thái + AI</h4>
+            <h2 class="fw-bold my-4 text-primary">Liên hệ</h2>
+            <ul class="list-unstyled text-start text-muted mb-4 lh-lg">
+              <li>✔️ Toàn bộ 6 phần mềm</li>
+              <li>✔️ Build Data Training AI tư vấn</li>
+              <li>✔️ Viết tính năng theo yêu cầu</li>
+            </ul>
+            <a href="#contact-info" class="btn btn-outline-primary w-100">Nhận tư vấn</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<!-- 7. ĐĂNG KÝ (ĐÃ SỬA) -->
+<section id="dang-ky" class="section text-center">
   <div class="container">
-    <h2>Đăng ký dùng thử</h2>
+    <h2 class="section-title">Đăng ký dùng thử</h2>
+    <p class="text-muted mb-4">Điền thông tin để được hỗ trợ cài đặt bản dùng thử miễn phí.</p>
 
-    <form id="myForm" class="col-md-6 mx-auto mt-4">
-      <input type="text" name="name" class="form-control mb-3" placeholder="Họ tên" required>
-      <input type="text" name="phone" class="form-control mb-3" placeholder="SĐT" required>
-      <input type="text" name="software" class="form-control mb-3" placeholder="Phần mềm quan tâm">
-      <button type="submit" class="btn btn-primary w-100">Gửi thông tin</button>
-    </form>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="shadow-sm p-4 rounded border">
 
-    <p id="msg" class="mt-3"></p>
+          <form id="formDangKy">
+            <input name="name" class="form-control mb-3" placeholder="Họ và tên" required>
+            <input name="phone" class="form-control mb-3" placeholder="Số điện thoại" required>
+            <input name="software" class="form-control mb-3" placeholder="Phần mềm quan tâm" required>
+
+            <button class="btn btn-primary w-100">Gửi thông tin</button>
+            <p id="status" class="mt-3"></p>
+          </form>
+
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- LIÊN HỆ -->
-<section class="section bg-light text-center">
+<footer class="text-center">
   <div class="container">
-    <h2>Liên hệ</h2>
-    <p>📞 09xx.xxx.xxx</p>
-    <p>📧 email@gmail.com</p>
+    <p class="mb-0 text-muted">© 2026 Bản quyền thuộc về Hệ sinh thái Phần mềm Trường học.</p>
+    <p class="mt-2 fw-bold text-light">Lập trình bởi MR. RICH</p>
   </div>
-</section>
-
-<footer>
-  <p>© 2026</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxD9ZM6V9YeroioCjySu4ZKwFaeWByZCj7M7YAIgy98yOSVkMpwtAikvQjCsMA9syayLQ/exec"; // DÁN LINK CỦA BẠN
+const scriptURL = "https://script.google.com/macros/s/AKfycbxD9ZM6V9YeroioCjySu4ZKwFaeWByZCj7M7YAIgy98yOSVkMpwtAikvQjCsMA9syayLQ/exec";
 
-document.getElementById("myForm").addEventListener("submit", function(e){
+document.getElementById("formDangKy").addEventListener("submit", function(e){
   e.preventDefault();
-
-  const data = {
-    name: this.name.value,
-    phone: this.phone.value,
-    software: this.software.value
-  };
 
   fetch(scriptURL, {
     method: "POST",
-    body: JSON.stringify(data)
+    body: new FormData(this)
   })
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("msg").innerText = "Đã gửi thành công!";
-    document.getElementById("msg").style.color = "green";
+  .then(() => {
+    document.getElementById("status").innerHTML = "✅ Gửi thành công!";
     this.reset();
   })
-  .catch(err => {
-    document.getElementById("msg").innerText = "Lỗi gửi dữ liệu!";
-    document.getElementById("msg").style.color = "red";
+  .catch(() => {
+    document.getElementById("status").innerHTML = "❌ Lỗi!";
   });
 });
 </script>
