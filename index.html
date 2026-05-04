@@ -424,21 +424,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxaoFVB2yl1NqJs_8n4RlF1aJcEKeS8HWIPgf781F0vj7_jRaLXcV8ybVLWvjP1yvgt9w/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxD9ZM6V9YeroioCjySu4ZKwFaeWByZCj7M7YAIgy98yOSVkMpwtAikvQjCsMA9syayLQ/exec";
 
 document.getElementById("formDangKy").addEventListener("submit", function(e){
   e.preventDefault();
 
+  const data = {
+    name: this.name.value,
+    phone: this.phone.value,
+    software: this.software.value
+  };
+
   fetch(scriptURL, {
     method: "POST",
-    body: new FormData(this)
+    body: JSON.stringify(data)
   })
-  .then(() => {
-    document.getElementById("status").innerHTML = "✅ Gửi thành công!";
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("status").innerText = "Đã gửi thành công!";
+    document.getElementById("status").style.color = "green";
     this.reset();
   })
-  .catch(() => {
-    document.getElementById("status").innerHTML = "❌ Lỗi!";
+  .catch(err => {
+    document.getElementById("status").innerText = "Lỗi gửi dữ liệu!";
+    document.getElementById("status").style.color = "red";
   });
 });
 </script>
